@@ -6,16 +6,18 @@
 --dark: #333;
 --light: #fff;
 --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
---hotrod: #FB3C2D;
---ironrod: #F2B410;
+--hotrod: #EA2736;
+--ironrod: #F0B311;
 
 }
+
 
 
 html{
 	box-sizing: border-box;
 	font-family: ariel, helveetica, sans-serif;
 	color: var(--dark);
+	height: 100%;
 }
 
 
@@ -24,12 +26,16 @@ body{
 	margin: 0;
 	padding: 0;
 	line-height: 1.4;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	min-width: 100%;
 
 }
 
 .btn{
 background: var(--hotrod);
-color: var(--dark);
+color: var(--light);
 font-weight: 600;
 	padding: 0.6rem 1.3rem;
 	text-decoration: none;
@@ -56,42 +62,46 @@ img{
 }
 
 
-
 /* NAVIGATION   */
 
 .nav-container{
 	min-width: 100%;
-	display: flex;
+	display: block;
 	background-color: var(--light);
 	min-height: 85px;
 }
 
 .branding{
-	width: 33.33%;
-	padding: 1.7rem 0rem 0rem 1.8rem;
+	width: 100%;
+	padding: 1rem 0rem 0rem 1rem;
 		text-align: left;
 
 }
 
 .branding a{
-background: var(--light);
+background: var(--hotrod);
+color: var(--dark);
 	text-decoration: none;
-	padding: 0.8rem;
+	padding: 1.4rem;
+	padding-bottom: .7rem;
 
-	color: var(--dark);
 	text-transform: uppercase;
-	font-size: 1.1rem;
-	
+	font-size: 1rem;
+	margin: 0;	
+}
+
+
+nav fa{
+	font-size:  .1rem;
 }
 
 .branding a:hover{
-background: var(--hotrod);
-color: var(--dark);
+
 box-shadow:  var(--shadow);
 }
 
 .navbar-collapse{
-	width: 66.66%;
+	width: 100%;
 }
 
 .main-nav ul{
@@ -127,30 +137,16 @@ box-shadow:  var(--shadow);
 	}
 
 
-	i.fas.fa-bars{
-		display: none;
-	}
-input{
-	display: none;
-}
+
 	/* TOP CONTAINER      */
 
-	.top-container{
-		display: grid;
-		grid-gap: 10px;
-		grid-template-areas: 
-		'welcome welcome top-box-a'
-		'welcome welcome top-box-b';
-	background: var(--ironrod);
-	}
-
-
+	
 
 	.welcome{
 		grid-area: welcome;
 		color: #fff;
 		min-height: 400px;
-		background: linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.5) 100%), url('img/welcome.jpg');
+		background: linear-gradient(to right, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%), url('img/welcome.jpg');
 		background-size: cover;
 		background-position: center;
 		padding: 3rem;
@@ -172,35 +168,47 @@ input{
 		margin-top: 0;
 		color: var(--light);
 	}
-	.top-box{
-		
+	
+/* testimonials   */
+.clients{
 		display: grid;
-		align-items: center;
-		justify-content: center;
-	/*	box-shadow: var(--shadow); */ 
-		margin: 20px 20px;
-	padding: 50px;
+		grid-gap: 20px;
+		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+		padding: 1rem;
+		text-align: center;
+}
 
-	}
+.testimonials{
+		text-align: center;
+		padding: 2.5rem;
+ 
+}
+.testimonials img{
+	max-width: 90%;
+	border-radius: 100%;
 
-	.top-box-a{
-	grid-area: top-box-a;
-	background: var(--light);
+}
 
-	}
 
-    .top-box-b{
-	grid-area: top-box-b;
-	background: var(--light);
 
-	}
+
+
+
+
+
+
+
+
+
+
+/* BOXES  */
 
 
 	.boxes{
 		display: grid;
-		grid-gap: 20px;
-		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-		padding: 100px;
+		grid-gap: 0px;
+	    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		padding: 0px;
 		text-align: center;
 	
 	}
@@ -212,17 +220,46 @@ input{
 
 	.box{
 		text-align: center;
-		padding: 1.5rem;
+		padding: 3.5rem;
 		/*	box-shadow: var(--shadow); */
 	}
 
 	.box:nth-child(odd){
-		background-color: var(--primary);
+		background-color: var(--dark);
+		color: var(--light);
 		}
 
 		.box:nth-child(even){
-			background-color: var(--secondary);
+			background-color: var(--hotrod);
+			color: var(--light);
 		}
+
+/**     PROMOTIONS */
+.promotions{
+	background-color: var(--ironrod);
+	padding: 75px;
+	text-align: center;
+}
+
+.promotions h1{
+	margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		/* info     */
 
@@ -253,30 +290,92 @@ input{
 
 
 		footer{
-			margin-top: 2rem;
+			margin-top:  auto;
 			background-color: var(--dark);
 			color: var(--light);
 			text-align: center;
 			padding: 1rem;
+			
 		}
 
 		/* MOBILE / TABLET MEDIA QUERIES  */
 
 		@media(max-width: 768px){
-				.top-container{
-					grid-template-areas: 
-					'welcome welcome'
-					'top-box-a top-box-b';
+				.nav-container{
+					min-width: 100%;
+					display: block;
+					min-height: auto;
+				}
+
+				.branding{
+					width: 100%;
+					padding: 1rem;
+				
+					text-align: center;
+
+				}
+
+				.branding a{
+					width: 100%;
+					text-align: center;
+					
+				}
+
+				.navbar-collapse{
+					width: 100%;
+				}
+
+				.main-nav ul{
+					padding: 0rem;
+					text-align: center;
+					margin: 0;
+				}
+				.main-nav li{
+					display: block;
+					padding: 0;
+					padding: 1rem;
+					width: 100%;
+
+						
+				}
+
+
+
+				.main-nav a{
+				
+					text-align: center;
+					
+				}
+
+				.clients{
+					grid-template-columns: 1fr;
+				}
+			
+
+				
+
+				.boxes{
+					grid-template-columns: 1fr 1fr;
 				}
 
 				.welcome h1{
 					font-size: 2.5rem;
+					
 				}
 
-				.main-nav ul{
-					display: none;
-					width: 100%;
+			
+				.info {
+					grid-template-columns: 1fr;
 				}
+
+				.info .btn{
+					display: block;
+					text-align: center;
+					margin: auto;
+
+				}
+
+}				
 
 /*				
 
@@ -306,4 +405,34 @@ input{
 				}
 */
 
-		}
+@media(max-width: 500px){
+
+
+	.top-container{
+		grid-template-areas: 
+		'welcome'
+		'top-box-a'
+		'top-box-b';
+	}
+
+
+	.portfolio{
+		display: grid;
+		grid-gap: 0px;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		margin: 0;
+	}
+
+
+	.portfolio img{
+		width: 100%;
+		margin: 0;
+	}
+
+
+	footer{
+		min-width: 100%;
+		margin: 0px;
+
+	}
+}
